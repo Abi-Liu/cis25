@@ -3,12 +3,12 @@
 //
 #include <iostream>
 
-void swap(int a, int b);
+void swap(int* a, int* b);
 
 int main() {
   int a = 3;
   int b = 1;
-  swap(a, b);
+  swap(&a, &b);
 }
 
 void swap(int* a, int* b) {
@@ -16,5 +16,5 @@ void swap(int* a, int* b) {
   int temp = *a;
   *a = *b;
   *b = temp;
-  std::cout << "a: " << a << " b: " << b << std::endl;
+  std::cout << "a: " << *a << " b: " << *b << std::endl;
 }
