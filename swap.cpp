@@ -11,10 +11,10 @@ int main() {
   swap(a, b);
 }
 
-void swap(int a, int b) {
+void swap(int* a, int* b) {
   std::cout << "Swapping values " << a << " and " << b << std::endl;
-  int temp = a;
-  a = b;
-  b = temp;
+  int temp = *a;
+  *a = *b;
+  *b = temp;
   std::cout << "a: " << a << " b: " << b << std::endl;
 }
