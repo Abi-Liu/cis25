@@ -60,8 +60,8 @@ int main() {
     int length = 40 - res.length() - label.length() - 2;
     cout << setw(40) << setfill('*') << "" << endl;
     cout << "*" << setw(39) << setfill(' ') << "*" << endl;
-    cout << "*" << setw(length) << left << label << setfill('-');
-    cout << setw(40 - length - 2) << right << res << "*" << endl;
+
+    cout << "*" << setw(label.length()) << left << label << setw(length) << setfill('-') << "" << setw(res.length()) << right << res << "*" << endl;
     cout << "*" << setw(39) << setfill(' ') << "*" << endl;
     cout << setw(40) << setfill('*') << "" << endl;
     return 0;
