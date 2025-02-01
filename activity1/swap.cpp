@@ -2,13 +2,16 @@
 // Created by Abi Liu on 1/22/25.
 //
 #include <iostream>
+#include <cstdlib>
+using namespace std;
 
 void swap(int* a, int* b);
 
 int main() {
-  int a = 3;
-  int b = 1;
+  int a = 10, b = 20;
+  cout << a << " " << b << endl;
   swap(&a, &b);
+  cout << a << " " << b << endl;
 }
 
 void swap(int* a, int* b) {
