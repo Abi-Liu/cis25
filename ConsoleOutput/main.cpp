@@ -14,7 +14,7 @@ int main() {
     // could figure this out dynamically but ill hardcode for now.
     int longestName = 7;
     int idWidth = 6;
-    int balanceWidth = 6;
+    int balanceWidth = 7;
 
     cout << setw((longestName + idWidth + balanceWidth)) << setfill(' ') << "Daily Report" << endl;
 
@@ -27,7 +27,7 @@ int main() {
     for (int i = 0; i < 3; i++) {
         cout << setw(idWidth) << right << setfill('0') << ids[i] << setw(padding) << setfill(' ') << " ";
         cout << setw(longestName) << left << names[i] << setw(padding) << setfill(' ') << " ";
-        cout << setw(balanceWidth) << setprecision(2) << fixed << left << balances[i] << setw(padding) << setfill(' ') << " ";
+        cout << "$" << setw(balanceWidth) << setprecision(2) << fixed << left << balances[i] << setw(padding) << setfill(' ') << " ";
         cout << endl;
     }
 }
