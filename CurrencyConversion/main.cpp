@@ -1,6 +1,7 @@
 //
 // Created by Abi Liu on 2/1/25.
 //
+#include <iomanip>
 #include <iostream>
 #include <string>
 using namespace std;
@@ -17,41 +18,34 @@ const double CONVERSION_RATES[4][4] = {
   {.0064, .0062, .0052, 1},
 };
 
-const int USD = 0;
-const int EURO = 1;
-const int GPB = 2;
-const int JPY = 3;
-
-double convert(double amount, string from, string to) {
-  int fromIndex, toIndex;
-  if(from == "USD") fromIndex = 0;
-  else if(from == "EURO") fromIndex = 1;
-  else if(from == "GBP") fromIndex = 2;
-  else if(from == "JPY") fromIndex = 3;
+int getIndex(string input) {
+  int index;
+  if(input == "USD") index = 0;
+  else if(input == "EURO") index = 1;
+  else if(input == "GBP") index = 2;
+  else if(input == "JPY") index = 3;
   // handles case where to/from is not usd, euro, gpb or jpy
   else return -1;
 
-  if(to=="USD") toIndex = 0;
-  else if(to=="EURO") toIndex = 1;
-  else if(to=="GBP") toIndex = 2;
-  else if(to=="JPY") toIndex = 3;
-  else return -1;
+  return index;
+}
+
+double convert(double amount, string from, string to) {
+  int fromIndex = getIndex(from), toIndex = getIndex(to);
+
+  if (fromIndex == -1 || toIndex == -1) {
+    return -1;
+  }
 
   return amount*CONVERSION_RATES[fromIndex][toIndex];
 }
 
 void exchangePromotion(string to, string from, double rate) {
-  int fromIndex, toIndex;
-  if(from == "USD") fromIndex = 0;
-  else if(from == "EURO") fromIndex = 1;
-  else if(from == "GBP") fromIndex = 2;
-  else if(from == "JPY") fromIndex = 3;
+  int fromIndex = getIndex(from), toIndex = getIndex(to);
 
-  if(to=="USD") toIndex = 0;
-  else if(to=="EURO") toIndex = 1;
-  else if(to=="GBP") toIndex = 2;
-  else if(to=="JPY") toIndex = 3;
-
+  if (fromIndex == -1 || toIndex == -1) {
+    return;
+  }
 
 }
 
@@ -72,5 +66,11 @@ int main () {
   transform(from.begin(), from.end(), from.begin(), ::toupper);
   transform(to.begin(), to.end(), to.begin(), ::toupper);
   double res = convert(amount, from, to);
-  cout << res << endl;
+
+  if (res == -1) {
+    cout << "Please select a currency from the given list" << endl;
+    return 0;
+  }
+
+  cout << fixed << setprecision(2) << res << " " + to << endl;
 }
