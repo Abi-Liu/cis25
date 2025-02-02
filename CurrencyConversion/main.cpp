@@ -40,12 +40,17 @@ double convert(double amount, string from, string to) {
   return amount*CONVERSION_RATES[fromIndex][toIndex];
 }
 
-void exchangePromotion(string to, string from, double rate) {
+void exchangePromotion(string from, string to, double rate) {
   int fromIndex = getIndex(from), toIndex = getIndex(to);
 
   if (fromIndex == -1 || toIndex == -1) {
     return;
   }
+
+
+  double (*modifiableRates)[4] = const_cast<double(*)[4]>(CONVERSION_RATES);
+  modifiableRates[fromIndex][toIndex] = rate;
+  cout << "Promotional rate applied! " << from << " to " << to << " is now: " << rate << endl;
 
 }
 
