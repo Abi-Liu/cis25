@@ -1,0 +1,3 @@
+/Users/abiliu/workspaces/bcc/cis25/activities/project1/cmake-build-debug/CMakeFiles/main.dir
+/Users/abiliu/workspaces/bcc/cis25/activities/project1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/abiliu/workspaces/bcc/cis25/activities/project1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
