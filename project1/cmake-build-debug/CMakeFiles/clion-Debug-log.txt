@@ -1,4 +1,0 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" -S /Users/abiliu/workspaces/bcc/cis25/activities/project1 -B /Users/abiliu/workspaces/bcc/cis25/activities/project1/cmake-build-debug
--- Configuring done (0.0s)
--- Generating done (0.0s)
--- Build files have been written to: /Users/abiliu/workspaces/bcc/cis25/activities/project1/cmake-build-debug
