@@ -177,6 +177,30 @@ utils/person.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/utils/person.cpp.s
 .PHONY : utils/person.cpp.s
 
+utils/phonebook.o: utils/phonebook.cpp.o
+.PHONY : utils/phonebook.o
+
+# target to build an object file
+utils/phonebook.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/utils/phonebook.cpp.o
+.PHONY : utils/phonebook.cpp.o
+
+utils/phonebook.i: utils/phonebook.cpp.i
+.PHONY : utils/phonebook.i
+
+# target to preprocess a source file
+utils/phonebook.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/utils/phonebook.cpp.i
+.PHONY : utils/phonebook.cpp.i
+
+utils/phonebook.s: utils/phonebook.cpp.s
+.PHONY : utils/phonebook.s
+
+# target to generate assembly for a file
+utils/phonebook.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/utils/phonebook.cpp.s
+.PHONY : utils/phonebook.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +216,9 @@ help:
 	@echo "... utils/person.o"
 	@echo "... utils/person.i"
 	@echo "... utils/person.s"
+	@echo "... utils/phonebook.o"
+	@echo "... utils/phonebook.i"
+	@echo "... utils/phonebook.s"
 .PHONY : help
 
 

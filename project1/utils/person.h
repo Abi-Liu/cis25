@@ -13,6 +13,7 @@ namespace PersonNamespace {
         std::string phoneNumber; // formatted with no space and other characters: 123456789
 
         Person(const std::string& name, const std::string& phoneNumber);
+        Person() = default;
         void display();
         void updateName(const std::string& name);
         void updatePhoneNumber(const std::string& newPhoneNumber);

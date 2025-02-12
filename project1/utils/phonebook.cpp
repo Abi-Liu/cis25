@@ -9,31 +9,45 @@
 using namespace PersonNamespace;
 using namespace std;
 
-// later we can modify this function to load a list of contacts from a text file
-map<string, Person> createPhonebook() {
-  map<string, Person> phonebook;
-  return phonebook;
-}
+namespace PhonebookNamespace {
+
+    // later we can modify this function to load a list of contacts from a text file
+    Phonebook Phonebook::loadPhonebook() {
+        Phonebook newPhonebook;
+        return newPhonebook;
+    }
 
 
-void printContacts(){}
+    void Phonebook::printContacts(){}
 
-// for later projects I will add input validation for phoneNumbers
-bool addContact(map<string, Person>& phonebook, const string& phoneNumber, Person& person){
-  // first we search to see if the phone number already exists
-  if(phonebook.find(phoneNumber) == phonebook.end()){
-    // phonenumber does not exist, add and return true
-    phonebook[phoneNumber] = person;
-    return true;
-  }
+    // for later projects I will add input validation for phoneNumbers
+    bool Phonebook::addContact(const string& phoneNumber, Person& person){
+        // first we search to see if the phone number already exists
+        if(phonebook.find(phoneNumber) == phonebook.end()){
+            // phonenumber does not exist, add and return true
+            phonebook[phoneNumber] = person;
+            return true;
+        }
 
-  // this phone number already exists, do not modify the map and return false;
-  return false;
-}
+        // this phone number already exists, do not modify the map and return false;
+        return false;
+    }
 
-bool deleteContact(){}
-bool updateContact(){}
+    bool Phonebook::deleteContact() {
+        return false;
+    }
+    bool Phonebook::updateContact() {
+        return false;
+    }
 
-Person search(const string& phoneNumber){
+    Person* Phonebook::searchByNumber(const string& phoneNumber){
+        if(phonebook.find(phoneNumber) == phonebook.end()){
+            // phone number not found, return nullptr
+            return nullptr;
+        }
 
+        // phone number exists, return a pointer to the Person struct
+        return &(phonebook.find(phoneNumber)->second);
+
+    }
 }
