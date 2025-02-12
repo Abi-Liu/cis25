@@ -12,10 +12,10 @@ namespace PersonNamespace {
         std::string name;
         std::string phoneNumber; // formatted with no space and other characters: 123456789
 
-        Person(std::string& name, std::string& phoneNumber);
+        Person(const std::string& name, const std::string& phoneNumber);
         void display();
-        void updateName(std::string& name);
-        void Person::updatePhoneNumber(std::string& newPhoneNumber);
+        void updateName(const std::string& name);
+        void updatePhoneNumber(const std::string& newPhoneNumber);
     };
 }
 

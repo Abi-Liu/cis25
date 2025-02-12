@@ -7,17 +7,17 @@
 using namespace std;
 
 namespace PersonNamespace {
-    Person::Person(string& name, string& phoneNumber) : name(name), phoneNumber(phoneNumber) {};
+    Person::Person(const string& name, const string& phoneNumber) : name(name), phoneNumber(phoneNumber) {};
 
     void Person::display() {
       cout << "Name: " << name << " Number: " << phoneNumber << endl;
     }
 
-    void Person::updateName(string& newName) {
+    void Person::updateName(const string& newName) {
         name = newName;
     }
 
-    void Person::updatePhoneNumber(string& newPhoneNumber) {
+    void Person::updatePhoneNumber(const string& newPhoneNumber) {
         phoneNumber = newPhoneNumber;
     }
 }
