@@ -36,11 +36,26 @@ namespace PhonebookNamespace {
     bool Phonebook::deleteContact() {
         return false;
     }
-    bool Phonebook::updateContact() {
-        return false;
+
+    // returns true if successfully updated
+    // false if person does not exist in phonebook
+    bool Phonebook::updateContact(const Person& original, const Person& newPerson) {
+        // first we search to see if the contact exists
+        if (!this->searchByNumber(original.phoneNumber)) {
+            return false;
+        }
+        // we have to cover the case where they change the phone number
+        // in that case we have to remove the previous entry in the map containing the old number,
+        // and add a new entry with the new number.
+        if (original.phoneNumber != newPerson.phoneNumber) {
+            phonebook.erase(original.phoneNumber);
+        }
+
+        phonebook[newPerson.phoneNumber] = newPerson;
+        return true;
     }
 
-    // returns a POINTER to a person object.
+    // returns a **POINTER** to a person object.
     // you have to be careful to check for nullptr before dereferencing
     Person* Phonebook::searchByNumber(const string& phoneNumber){
         if(phonebook.find(phoneNumber) == phonebook.end()){
