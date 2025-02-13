@@ -7,6 +7,7 @@
 
 #include <map>
 #include <iostream>
+#include <vector>
 #include "person.h"
 
 namespace PhonebookNamespace {
@@ -21,7 +22,7 @@ namespace PhonebookNamespace {
         bool deleteContact();
         bool updateContact();
         PersonNamespace::Person* searchByNumber(const std::string& phoneNumber);
-        PersonNamespace::Person* searchByName(const std::string& phoneNumber);
+        std::vector<PersonNamespace::Person> searchByName(const std::string& name);
     };
 }
 
