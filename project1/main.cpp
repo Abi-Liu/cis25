@@ -32,5 +32,10 @@ int main() {
     persons[i].display();
   }
 
-  string s = "Bob Liu";
+  Person newPerson("Bob", "3216547890");
+  bool success = pb.updateContact(p2, newPerson);
+  if (success) {
+    Person x = *(pb.searchByNumber("3216547890"));
+    x.display();
+  }
 }
