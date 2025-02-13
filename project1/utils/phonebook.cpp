@@ -18,7 +18,11 @@ namespace PhonebookNamespace {
     }
 
 
-    void Phonebook::printContacts(){}
+    void Phonebook::printContacts() {
+        for (auto it = phonebook.begin(); it != phonebook.end(); ++it) {
+            it->second.display();
+        }
+    }
 
     // for later iterations I will add input validation for phoneNumbers
     bool Phonebook::addContact(const string& phoneNumber, Person& person){

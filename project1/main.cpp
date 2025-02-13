@@ -24,18 +24,24 @@ int main() {
 
   Person* p3 = pb.searchByNumber("123456789");
   if (p3) {
-    p3->display();
+    // p3->display();
   }
 
   vector<Person> persons = pb.searchByName("Bob");
   for (int i = 0; i < persons.size(); i++) {
-    persons[i].display();
+    // persons[i].display();
   }
 
   Person newPerson("Bob", "3216547890");
-  bool success = pb.updateContact(p2, newPerson);
-  if (success) {
-    Person x = *(pb.searchByNumber("3216547890"));
-    x.display();
-  }
+  // bool success = pb.updateContact(p2, newPerson);
+  // if (success) {
+  //   Person* x = pb.searchByNumber("3216547890");
+  //   x->display();
+  // }
+
+  pb.printContacts();
+  Person updateNumber("Bob", "1111111111");
+  pb.updateContact(newPerson, updateNumber);
+  cout << endl;
+  pb.printContacts();
 }
