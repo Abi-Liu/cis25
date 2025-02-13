@@ -19,7 +19,7 @@ namespace PhonebookNamespace {
         Phonebook loadPhonebook();
         void printContacts();
         bool addContact(const std::string& phoneNumber, PersonNamespace::Person& person);
-        bool deleteContact();
+        bool deleteContact(const PersonNamespace::Person& p);
         bool updateContact(const PersonNamespace::Person& original, const PersonNamespace::Person& newPerson);
         PersonNamespace::Person* searchByNumber(const std::string& phoneNumber);
         std::vector<PersonNamespace::Person> searchByName(const std::string& name);

@@ -33,7 +33,12 @@ namespace PhonebookNamespace {
         return false;
     }
 
-    bool Phonebook::deleteContact() {
+    // returns true if successfully deleted, false if contact  does not exist
+    bool Phonebook::deleteContact(const Person& p) {
+        if (this->searchByNumber(p.phoneNumber)) {
+            phonebook.erase(p.phoneNumber);
+            return true;
+        }
         return false;
     }
 
