@@ -24,8 +24,24 @@ namespace PhonebookNamespace {
         }
     }
 
+    // helper method to ensure phone number contains only digits
+    bool isDigits(const string& str) {
+        for (int i = 0; i < str.size(); i++) {
+            if (!isdigit(str[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     // for later iterations I will add input validation for phoneNumbers
+    // validate user input when i implement the repl
     bool Phonebook::addContact(const string& phoneNumber, Person& person){
+        // for now there will just be basic validation to ensure phone numbers are the correct length and all digits
+        if (phoneNumber.length() != 10 && !isDigits(phoneNumber)) {
+            return false;
+        }
+
         // first we search to see if the phone number already exists
         if(phonebook.find(phoneNumber) == phonebook.end()){
             // phonenumber does not exist, add and return true

@@ -24,6 +24,8 @@ namespace PhonebookNamespace {
         PersonNamespace::Person* searchByNumber(const std::string& phoneNumber);
         std::vector<PersonNamespace::Person> searchByName(const std::string& name);
     };
+
+    bool isDigits(const std::string& str);
 }
 
 
