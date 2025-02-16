@@ -10,7 +10,7 @@
 namespace PersonNamespace {
     struct Person {
         std::string name;
-        std::string phoneNumber; // formatted with no space and other characters: 123456789
+        std::string phoneNumber; // formatted with no space and other characters: 1234567890
 
         Person(const std::string& name, const std::string& phoneNumber);
         Person() = default;

@@ -40,16 +40,17 @@ namespace PhonebookNamespace {
 
     // for later iterations I will add input validation for phoneNumbers
     // validate user input when i implement the repl
-    bool Phonebook::addContact(const string& phoneNumber, Person& person){
+    bool Phonebook::addContact(Person& person){
         // for now there will just be basic validation to ensure phone numbers are the correct length and all digits
-        if (phoneNumber.length() != 10 && !isDigits(phoneNumber)) {
+        if (person.phoneNumber.length() != 10 || !isDigits(person.phoneNumber)) {
             return false;
         }
 
         // first we search to see if the phone number already exists
-        if(phonebook.find(phoneNumber) == phonebook.end()){
+        // [1,2,3,4   ]
+        if(phonebook.find(person.phoneNumber) == phonebook.end()){
             // phonenumber does not exist, add and return true
-            phonebook[phoneNumber] = person;
+            phonebook[person.phoneNumber] = person;
             return true;
         }
 
@@ -99,6 +100,7 @@ namespace PhonebookNamespace {
 
     // this function takes a substring to search for and returns a vector of Persons
     // with the given substring in their name
+    // this method is case sensitive, maybe in later iterations i will make it  case insensitive
     vector<Person> Phonebook::searchByName(const std::string& name) {
         // loop through the person values stored in the map and
         vector<Person> persons;

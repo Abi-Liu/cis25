@@ -10,39 +10,28 @@ using namespace PersonNamespace;
 using namespace std;
 
 int main() {
-  Person p("Abi", "1234567890");
-  p.updateName("Abi Liu");
+    Person p1("John", "2222222222");
+    p1.updateName("John Doe");
+    p1.updatePhoneNumber("1111111111");
+    //
+    Phonebook pb;
+    //
+    pb.addContact(p1);
+    //
+    Person p2("Sally Doe", "2222222222");
+    pb.addContact(p2);
 
-  // p.updatePhoneNumber("234567890");
-  // p.display();
+    Person update ("J Doe", "3333333333");
+    pb.updateContact(p1, update);
 
-  Phonebook pb;
-  pb.addContact("1234567890", p);
+    Person p3("Abi Liu", "4444444444");
+    pb.addContact(p3);
 
-  Person p2("Bob Liu", "3216547890");
-  pb.addContact("3216547890", p2);
+    //
 
-  Person* p3 = pb.searchByNumber("123456789");
-  if (p3) {
-    // p3->display();
-  }
-
-  vector<Person> persons = pb.searchByName("Bob");
-  for (int i = 0; i < persons.size(); i++) {
-    // persons[i].display();
-  }
-
-  Person newPerson("Bob", "3216547890");
-  // bool success = pb.updateContact(p2, newPerson);
-  // if (success) {
-  //   Person* x = pb.searchByNumber("3216547890");
-  //   x->display();
-  // }
-
-  pb.printContacts();
-  Person updateNumber("Bob bob bob", "1111111111");
-  pb.updateContact(newPerson, updateNumber);
-  cout << endl;
-  pb.printContacts();
-
+    //
+    vector<Person> people = pb.searchByName("ADLKASJDLKASJ");
+    for (int i = 0; i < people.size(); i++) {
+        people[i].display();
+    }
 }
