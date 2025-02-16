@@ -23,14 +23,20 @@ int main() {
 
     Person update ("J Doe", "3333333333");
     pb.updateContact(p1, update);
+    // pb.printContacts();
 
     Person p3("Abi Liu", "4444444444");
     pb.addContact(p3);
 
     //
-
+    // Person* ptr = pb.searchByNumber("4444444444");
+    // if (ptr != nullptr) {
+    //     ptr -> display();
+    // } else {
+    //     cout << "No such contact found" << endl;
+    // }
     //
-    vector<Person> people = pb.searchByName("ADLKASJDLKASJ");
+    vector<Person> people = pb.searchByName("doe");
     for (int i = 0; i < people.size(); i++) {
         people[i].display();
     }
