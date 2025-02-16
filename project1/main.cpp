@@ -40,7 +40,7 @@ int main() {
   // }
 
   pb.printContacts();
-  Person updateNumber("Bob", "1111111111");
+  Person updateNumber("Bob bob bob", "1111111111");
   pb.updateContact(newPerson, updateNumber);
   cout << endl;
   pb.printContacts();

@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <iomanip>
 #include <map>
 #include "phonebook.h"
 #include "person.h"
@@ -19,6 +20,9 @@ namespace PhonebookNamespace {
 
 
     void Phonebook::printContacts() {
+        cout << setw(10) << left << setfill(' ') << "Name" << setw(5) << setfill(' ') << "" << setw(10) << "Number" << endl;
+        cout << setw(10) << left << setfill('-') << "" << setw(5) << setfill(' ') << ""
+            << setw(10) << setfill('-') << "" << endl;
         for (auto it = phonebook.begin(); it != phonebook.end(); ++it) {
             it->second.display();
         }

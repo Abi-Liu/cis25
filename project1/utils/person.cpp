@@ -4,13 +4,14 @@
 
 #include "person.h"
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 namespace PersonNamespace {
     Person::Person(const string& name, const string& phoneNumber) : name(name), phoneNumber(phoneNumber) {};
 
     void Person::display() {
-      cout << "Name: " << name << " Number: " << phoneNumber << endl;
+      cout << setw(15) << left << setfill(' ') << name << " " << setw(10) << left << phoneNumber << endl;
     }
 
     void Person::updateName(const string& newName) {
