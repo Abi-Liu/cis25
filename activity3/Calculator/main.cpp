@@ -6,6 +6,18 @@ using namespace std;
 
 int getInt() {
   int num;
+  while (true) {
+    cin >> num;
+
+
+    if (cin.fail()) {
+      cin.clear();
+      cin.ignore(numeric_limits<streamsize>::max(), '\n');
+      cout << "Invalid input. Please enter an integer.\n";
+    } else {
+      return num;
+    }
+  }
 
 }
 
@@ -13,10 +25,9 @@ int main() {
   char op;
   cout << "Select an operator:" << " +, -, *, /" << endl;
   cin >> op;
-  int num1, num2;
   cout << "Enter two numbers:" << endl;
-  cin>>num1;
-  cin>>num2;
+  int num1 = getInt();
+  int num2 = getInt();
   switch (op) {
     case '+':
       cout << num1 + num2 << endl;
