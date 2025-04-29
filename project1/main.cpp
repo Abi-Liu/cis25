@@ -23,7 +23,7 @@ int main() {
 
     Person update ("J Doe", "3333333333");
     pb.updateContact(p1, update);
-    // pb.printContacts();
+    pb.printContacts();
 
     Person p3("Abi Liu", "4444444444");
     pb.addContact(p3);
