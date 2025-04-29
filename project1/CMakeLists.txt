@@ -26,7 +26,10 @@ enable_testing()
 # Add test executable
 add_executable(
         tests
-        tests/test.cpp  # You can create this file
+        tests/person_test.cpp
+        tests/phonebook_test.cpp
+        utils/person.cpp
+        utils/phonebook.cpp
 )
 
 target_link_libraries(
