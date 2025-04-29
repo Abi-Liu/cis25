@@ -54,3 +54,19 @@ TEST(PhonebookTest, deleteContactFail) {
     EXPECT_FALSE(res);
 }
 
+TEST(PhonebookTest, updateContactSuccess) {
+    Phonebook phonebook;
+    Person p1("John", "1234567890");
+    Person update("John Doe", "1234567890");
+    phonebook.addContact(p1);
+    bool res = phonebook.updateContact(p1, update);
+    EXPECT_TRUE(res);
+}
+
+TEST(PhonebookTest, updateContactFail) {
+    Phonebook phonebook;
+    Person p1("John", "1234567890");
+    Person update("John Doe", "1234567890");
+    bool res = phonebook.updateContact(p1, update);
+    EXPECT_FALSE(res);
+}
