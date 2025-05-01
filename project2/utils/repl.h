@@ -7,9 +7,20 @@
 
 
 
-class repl {
+namespace ReplNamespace {
+    enum Command {
+      Add = 1,
+      Delete,
+      Search,
+      Print,
+      Unknown,
+    };
 
-};
+    void start();
+    int getCommand();
+    Command parseCommand(const int&);
+}
+
 
 
 

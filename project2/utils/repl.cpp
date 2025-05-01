@@ -3,3 +3,41 @@
 //
 
 #include "repl.h"
+#include <iostream>
+using namespace std;
+
+namespace ReplNamespace {
+    Command parseCommand(const int& cmd) {
+        switch (cmd) {
+          case 1: return Command::Add;
+          case 2: return Command::Delete;
+          case 3: return Command::Search;
+          case 4: return Command::Print;
+          default: return Command::Unknown;
+        }
+    }
+
+    int getCommand() {
+      int val;
+      while(true) {
+          cout << "Please enter the number corresponding to the command: ";
+          cin >> val;
+          if(cin.fail()) {
+            cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // discard invalid input
+            cout << "Please enter an integer from 1 to 4!" << endl;
+          } else {
+              return val;
+          }
+      }
+    }
+
+    void start() {
+      cout << "Welcome to your phone book!" << endl;
+      cout << "Commands:" << endl;
+      cout << "1: Add contact" << endl << "2: Delete contact" << endl << "3: Search contact" << endl << "4: Print contact" << endl;
+      while (true) {
+        getCommand();
+      }
+    }
+}
