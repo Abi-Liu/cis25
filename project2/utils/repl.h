@@ -20,9 +20,8 @@ namespace ReplNamespace {
 
     void start();
     int getCommand();
-    Command parseCommand(const int&);
-    PersonNamespace::Person getPersonDetail();
     std::string getLineInput(const std::string&);
+    Command parseCommand(const int&);
     PersonNamespace::Person getPersonDetail();
 }
 
