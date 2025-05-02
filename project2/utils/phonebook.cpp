@@ -17,10 +17,11 @@ namespace PhonebookNamespace {
     // later we can modify this function to load a list of contacts from a text file
     Phonebook Phonebook::loadPhonebook() {
         Phonebook newPhonebook;
-        ifstream pbFile("phonebook.csv");
+        ifstream pbFile("../phonebook.csv");
 
         if (!pbFile.is_open()) {
             // file does not exist yet, blank phonebook
+            cout << "No contacts found in memory" << endl;
             return newPhonebook;
         }
 
@@ -36,12 +37,25 @@ namespace PhonebookNamespace {
             }
         }
 
+        cout << "Contacts loaded from memory" << endl;
         pbFile.close();
         return newPhonebook;
     }
 
     void Phonebook::savePhonebook() {
+        ofstream pbFile("../phonebook.csv");
 
+        if (!pbFile.is_open()) {
+            cout << "Error saving phonebook data!" << endl;
+            return;
+        }
+
+        for (auto it = phonebook.begin(); it != phonebook.end(); ++it) {
+            pbFile << it->second.name << "," << it->second.phoneNumber << "\n";
+        }
+
+        cout << "Contacts saved successfully!" << endl;
+        pbFile.close();
     }
 
 
