@@ -31,9 +31,11 @@ namespace ReplNamespace {
           cin >> val;
           if(cin.fail()) {
             cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // discard invalid input
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // discard invalid input
             cout << "Please enter an integer from 1 to 6!" << endl;
           } else {
+              cin.clear();
+              cin.ignore(numeric_limits<streamsize>::max(), '\n'); // discard invalid input
               return val;
           }
       }
@@ -71,12 +73,14 @@ namespace ReplNamespace {
       // initialize phonebook
       Phonebook pb;
 
-      // load phonebook from file if it exists
-      pb.loadPhonebook();
+      cout << "Welcome to your phone book!" << endl << endl;
 
-      cout << "Welcome to your phone book!" << endl;
+      cout << "Loading the phone book..." << endl;
+      // load phonebook from file if it exists
+      pb = pb.loadPhonebook();
+
       cout << "Commands:" << endl;
-      cout << "[1] - Add contact" << endl << "[2] - Delete contact" << endl << "[3] - Search contact by name" << "[4] - Search contact by Number"
+      cout << "[1] - Add contact" << endl << "[2] - Delete contact" << endl << "[3] - Search contact by name" <<endl << "[4] - Search contact by Number"
           << endl << "[5] - Print contacts" << endl
           << "[6] - Exit" << endl;
 
@@ -99,22 +103,33 @@ namespace ReplNamespace {
             while(true) {
               string number = getLineInput("Please enter the phone number to delete: ");
               if(isValid(number)) {
-                pb.deleteContact(number);
+                bool res = pb.deleteContact(number);
+                if (res) {
+                  cout << "Deleted contact successfully!" << endl;
+                } else {
+                  cout << "Contact not found!" << endl;
+                }
                 break;
               } else {
                 cout << "Please enter a valid phone number!" << endl;
               }
-              break;
             }
+            break;
           }
 
           case Command::SearchName: {
             string name = getLineInput("Please enter the name to search: ");
             vector<Person> res = pb.searchByName(name);
-            // print list of results
-            for(Person p : res) {
-              p.display();
+
+            if (res.empty()) {
+              cout << "No contacts found with substring " << name << endl;
+            } else {
+              // print list of results
+              for(Person p : res) {
+                p.display();
+              }
             }
+            break;
           }
 
           case Command::SearchNumber: {
@@ -137,12 +152,19 @@ namespace ReplNamespace {
 
           case Command::Print: {
             pb.printContacts();
+            break;
           }
 
           case Command::Exit: {
             cout << "Saving phonebook..." << endl;
             // save phonebook
+            pb.savePhonebook();
+            cout << "Goodbye!" << endl;
+            return;
           }
+
+          default:
+            cout << "Invalid command!" << endl;
         }
       }
     }
