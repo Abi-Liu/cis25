@@ -43,9 +43,6 @@ namespace ReplNamespace {
         string input;
         cout << prompt;
 
-        // Clear any leftover characters from previous input
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
         getline(cin, input);
         return input;
     }
@@ -54,7 +51,7 @@ namespace ReplNamespace {
       Person person;
       while(true) {
         person.name = getLineInput("Please enter the person's name: ");
-        if(person.name.empty()) {
+        if(!person.name.empty()) {
           break;
         }
         cout << "Name cannot be empty!" << endl;
@@ -62,11 +59,12 @@ namespace ReplNamespace {
 
       while(true) {
         person.phoneNumber = getLineInput("Please enter the person's phone number: ");
-        if(!isValid(person.phoneNumber)) {
+        if(isValid(person.phoneNumber)) {
           break;
         }
         cout << "Invalid phone number!" << endl;
       }
+      return person;
     }
 
     void start() {
@@ -92,13 +90,15 @@ namespace ReplNamespace {
             bool success = pb.addContact(p);
             if (!success) {
               cout << "Add contact failed! Phone number already exists or phone number is invalid!" << endl;
+            } else {
+              cout << "Added " << p.name << " successfully!" << endl;
             }
             break;
           }
           case Command::Delete: {
             while(true) {
               string number = getLineInput("Please enter the phone number to delete: ");
-              if(!isValid(number)) {
+              if(isValid(number)) {
                 pb.deleteContact(number);
                 break;
               } else {
@@ -115,6 +115,33 @@ namespace ReplNamespace {
             for(Person p : res) {
               p.display();
             }
+          }
+
+          case Command::SearchNumber: {
+            while (true) {
+              string number = getLineInput("Please enter the number to search: ");
+              if(isValid(number)) {
+                Person* p = pb.searchByNumber(number);
+                if(p) {
+                  p->display();
+                } else {
+                  cout << "Could not find contact for number " << number << endl;
+                }
+                break;
+              } else {
+                cout << "Please enter a valid number!" << endl;
+              }
+            }
+            break;
+          }
+
+          case Command::Print: {
+            pb.printContacts();
+          }
+
+          case Command::Exit: {
+            cout << "Saving phonebook..." << endl;
+            // save phonebook
           }
         }
       }

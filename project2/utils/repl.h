@@ -22,6 +22,8 @@ namespace ReplNamespace {
     int getCommand();
     Command parseCommand(const int&);
     PersonNamespace::Person getPersonDetail();
+    std::string getLineInput(const std::string&);
+    PersonNamespace::Person getPersonDetail();
 }
 
 
