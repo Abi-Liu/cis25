@@ -30,6 +30,8 @@ add_executable(
         tests/phonebook_test.cpp
         utils/person.cpp
         utils/phonebook.cpp
+        tests/repl_test.cpp
+        utils/repl.cpp
 )
 
 target_link_libraries(

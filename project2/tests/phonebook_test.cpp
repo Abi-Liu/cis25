@@ -16,6 +16,18 @@ TEST(PhonebookTest, isDigitFail) {
     EXPECT_FALSE(res);
 }
 
+TEST(PhonebookTest, isValidSuccess) {
+    bool res = isValid("1234567890");
+    EXPECT_TRUE(res);
+}
+
+
+TEST(PhonebookTest, isValidFail) {
+    // not 10 digits, should fail
+    bool res = isValid("12356790");
+    EXPECT_FALSE(res);
+}
+
 TEST(PhonebookTest, addContactSuccess) {
     Phonebook phonebook;
     Person p1("John", "1234567890");
@@ -45,14 +57,14 @@ TEST(PhonebookTest, deleteContactSuccess) {
     Phonebook phonebook;
     Person p1("John", "1234567890");
     phonebook.addContact(p1);
-    bool res = phonebook.deleteContact(p1);
+    bool res = phonebook.deleteContact(p1.phoneNumber);
     EXPECT_TRUE(res);
 }
 
 TEST(PhonebookTest, deleteContactFail) {
     Phonebook phonebook;
     Person p1("John", "1234567890");
-    bool res = phonebook.deleteContact(p1);
+    bool res = phonebook.deleteContact(p1.phoneNumber);
     EXPECT_FALSE(res);
 }
 
