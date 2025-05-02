@@ -11,8 +11,10 @@ namespace ReplNamespace {
     enum Command {
       Add = 1,
       Delete,
-      Search,
+      SearchName,
+      SearchNumber,
       Print,
+      Exit,
       Unknown,
     };
 

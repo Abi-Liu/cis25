@@ -11,8 +11,10 @@ namespace ReplNamespace {
         switch (cmd) {
           case 1: return Command::Add;
           case 2: return Command::Delete;
-          case 3: return Command::Search;
-          case 4: return Command::Print;
+          case 3: return Command::SearchName;
+          case 4: return Command::SearchNumber;
+          case 5: return Command::Print;
+          case 6: return Command::Exit;
           default: return Command::Unknown;
         }
     }
@@ -35,7 +37,9 @@ namespace ReplNamespace {
     void start() {
       cout << "Welcome to your phone book!" << endl;
       cout << "Commands:" << endl;
-      cout << "1: Add contact" << endl << "2: Delete contact" << endl << "3: Search contact" << endl << "4: Print contact" << endl;
+      cout << "[1] - Add contact" << endl << "[2] - Delete contact" << endl << "[3] - Search contact by name" << "[4] - Search contact by Number"
+          << endl << "[5] - Print contacts" << endl
+          << "[6] - Exit" << endl;
       while (true) {
         getCommand();
       }
