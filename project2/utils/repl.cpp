@@ -6,6 +6,7 @@
 #include "phonebook.h"
 #include "person.h"
 #include <iostream>
+#include <vector>
 using namespace PhonebookNamespace;
 using namespace PersonNamespace;
 using namespace std;
@@ -86,15 +87,35 @@ namespace ReplNamespace {
         Command cmd = parseCommand(command);
         // switch statement to utilize different functions based on the command type
         switch (cmd) {
-          case Command::Add:
+          case Command::Add: {
             Person p = getPersonDetail();
             bool success = pb.addContact(p);
             if (!success) {
               cout << "Add contact failed! Phone number already exists or phone number is invalid!" << endl;
             }
             break;
-          case Command::Delete:
+          }
+          case Command::Delete: {
+            while(true) {
+              string number = getLineInput("Please enter the phone number to delete: ");
+              if(!isValid(number)) {
+                pb.deleteContact(number);
+                break;
+              } else {
+                cout << "Please enter a valid phone number!" << endl;
+              }
+              break;
+            }
+          }
 
+          case Command::SearchName: {
+            string name = getLineInput("Please enter the name to search: ");
+            vector<Person> res = pb.searchByName(name);
+            // print list of results
+            for(Person p : res) {
+              p.display();
+            }
+          }
         }
       }
     }
