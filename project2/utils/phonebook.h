@@ -17,6 +17,7 @@ namespace PhonebookNamespace {
         Phonebook() = default;
 
         Phonebook loadPhonebook();
+        void Phonebook::savePhonebook();
         void printContacts();
         bool addContact(PersonNamespace::Person& person);
         bool deleteContact(const std::string& phoneNumber);

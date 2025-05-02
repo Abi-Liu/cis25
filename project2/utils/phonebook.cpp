@@ -5,6 +5,8 @@
 #include <iostream>
 #include <iomanip>
 #include <map>
+#include <fstream>
+#include <sstream>
 #include "phonebook.h"
 #include "person.h"
 using namespace PersonNamespace;
@@ -15,7 +17,31 @@ namespace PhonebookNamespace {
     // later we can modify this function to load a list of contacts from a text file
     Phonebook Phonebook::loadPhonebook() {
         Phonebook newPhonebook;
+        ifstream pbFile("phonebook.csv");
+
+        if (!pbFile.is_open()) {
+            // file does not exist yet, blank phonebook
+            return newPhonebook;
+        }
+
+        // phonebook file exists and is opened, we can read from it now and populate our phonebook map
+        string line;
+        while (getline(pbFile, line)) {
+            stringstream ss(line);
+            string name, number;
+
+            if (getline(ss, name, ',') && getline(ss, number, ',')) {
+                Person p(name, number);
+                newPhonebook.addContact(p);
+            }
+        }
+
+        pbFile.close();
         return newPhonebook;
+    }
+
+    void Phonebook::savePhonebook() {
+
     }
 
 
