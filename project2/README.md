@@ -1,6 +1,9 @@
-# Project 1 - Phonebook application
+# Project 2 - Phonebook application
 
-This is a simple phone book application written in C++. It utilizes structs to represent the phonebook and people with methods attached to each struct. The phonebook supports 6 basic operations. Add a contact, delete a contact, update a contact, search for a contact by phone number, and search for contacts by name.
+This is a continuation of my phonebook project in project 1.
+
+There are several new features added, including a REPL to make the user experience more interactive, as well as a way to store and save contacts to files to preserve the data across runs.
+
+I have also included in depth unit tests to ensure the validity and robustness of each method.
 
 Demo video:
-https://www.youtube.com/watch?v=NExM6zIWMCI
