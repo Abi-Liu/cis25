@@ -24,6 +24,7 @@ namespace ReplNamespace {
         }
     }
 
+    // gets user input commands and ensures the user has inputted a valid command
     int getCommand() {
       int val;
       while(true) {
@@ -41,6 +42,7 @@ namespace ReplNamespace {
       }
     }
 
+  // helper method to easily getLine input with a prompt
     string getLineInput(const string& prompt) {
         string input;
         cout << prompt;
@@ -49,6 +51,7 @@ namespace ReplNamespace {
         return input;
     }
 
+  // helper method to create Person structs to be added into the phonebook
     Person getPersonDetail() {
       Person person;
       while(true) {
@@ -69,6 +72,7 @@ namespace ReplNamespace {
       return person;
     }
 
+  // main function to run the REPL
     void start() {
       // initialize phonebook
       Phonebook pb;
