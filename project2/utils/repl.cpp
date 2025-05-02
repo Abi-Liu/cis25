@@ -31,7 +31,7 @@ namespace ReplNamespace {
           if(cin.fail()) {
             cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // discard invalid input
-            cout << "Please enter an integer from 1 to 4!" << endl;
+            cout << "Please enter an integer from 1 to 6!" << endl;
           } else {
               return val;
           }
@@ -54,26 +54,46 @@ namespace ReplNamespace {
       while(true) {
         person.name = getLineInput("Please enter the person's name: ");
         if(person.name.empty()) {
-          continue;
+          break;
         }
+        cout << "Name cannot be empty!" << endl;
+      }
 
+      while(true) {
         person.phoneNumber = getLineInput("Please enter the person's phone number: ");
-        if(person.phoneNumber.empty()) {}
+        if(!isValid(person.phoneNumber)) {
+          break;
+        }
+        cout << "Invalid phone number!" << endl;
       }
     }
 
     void start() {
+      // initialize phonebook
+      Phonebook pb;
+
+      // load phonebook from file if it exists
+      pb.loadPhonebook();
+
       cout << "Welcome to your phone book!" << endl;
       cout << "Commands:" << endl;
       cout << "[1] - Add contact" << endl << "[2] - Delete contact" << endl << "[3] - Search contact by name" << "[4] - Search contact by Number"
           << endl << "[5] - Print contacts" << endl
           << "[6] - Exit" << endl;
+
       while (true) {
         int command = getCommand();
         Command cmd = parseCommand(command);
         // switch statement to utilize different functions based on the command type
         switch (cmd) {
           case Command::Add:
+            Person p = getPersonDetail();
+            bool success = pb.addContact(p);
+            if (!success) {
+              cout << "Add contact failed! Phone number already exists or phone number is invalid!" << endl;
+            }
+            break;
+          case Command::Delete:
 
         }
       }
