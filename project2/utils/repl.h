@@ -1,7 +1,7 @@
 //
 // Created by Abi Liu on 4/27/25.
 //
-
+#include "person.h"
 #ifndef REPL_H
 #define REPL_H
 
@@ -21,6 +21,7 @@ namespace ReplNamespace {
     void start();
     int getCommand();
     Command parseCommand(const int&);
+    PersonNamespace::Person getPersonDetail();
 }
 
 

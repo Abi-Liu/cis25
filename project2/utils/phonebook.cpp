@@ -38,11 +38,19 @@ namespace PhonebookNamespace {
         return true;
     }
 
+    // checks for valid phone number
+    bool isValid(const string& phoneNumber) {
+        if (phoneNumber.length() != 10 || !isDigits(phoneNumber)) {
+            return false;
+        }
+
+        return true;
+    }
+
     // for later iterations I will add input validation for phoneNumbers
     // validate user input when i implement the repl
     bool Phonebook::addContact(Person& person){
-        // for now there will just be basic validation to ensure phone numbers are the correct length and all digits
-        if (person.phoneNumber.length() != 10 || !isDigits(person.phoneNumber)) {
+        if (!isValid(person.phoneNumber)) {
             return false;
         }
 

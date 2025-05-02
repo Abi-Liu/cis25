@@ -26,6 +26,7 @@ namespace PhonebookNamespace {
     };
 
     bool isDigits(const std::string& str);
+    bool isValid(const std::string& phoneNumber);
 }
 
 
