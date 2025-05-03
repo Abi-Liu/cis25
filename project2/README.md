@@ -6,4 +6,4 @@ There are several new features added, including a REPL to make the user experien
 
 I have also included in depth unit tests to ensure the validity and robustness of each method.
 
-Demo video:
+[Demo video](https://youtu.be/gMo715LWfZg)
