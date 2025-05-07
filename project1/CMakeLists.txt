@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 include_directories(include)
 
-add_executable(main main.cpp utils/person.cpp utils/phonebook.cpp)
+add_executable(main src/main.cpp src/person.cpp src/phonebook.cpp)
 
 
 # ---------- Google Test Setup ----------
@@ -24,12 +24,11 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 # Add test executable
-add_executable(
-        tests
-        tests/person_test.cpp
-        tests/phonebook_test.cpp
-        utils/person.cpp
-        utils/phonebook.cpp
+add_executable(tests
+        test/person_test.cpp
+        test/phonebook_test.cpp
+        src/person.cpp
+        src/phonebook.cpp
 )
 
 target_link_libraries(

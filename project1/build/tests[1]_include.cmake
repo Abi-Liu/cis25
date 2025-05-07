@@ -1,0 +1,5 @@
+if(EXISTS "/Users/abiliu/workspaces/bcc/cis25/activities/project1/build/tests[1]_tests.cmake")
+  include("/Users/abiliu/workspaces/bcc/cis25/activities/project1/build/tests[1]_tests.cmake")
+else()
+  add_test(tests_NOT_BUILT tests_NOT_BUILT)
+endif()
