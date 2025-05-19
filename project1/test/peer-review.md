@@ -1,0 +1,29 @@
+# Peer review: Phonebook<br>
+- Code Structure/CMake:
+	- /include/ and /src/ are self explanatory
+	- CML includes entire /include/ directory
+	- gtest fetched so manual install isn't needed
+- Modularity/Readability:
+	- Person and Phonebook have discrete namespaces
+	- Person::display() is separate from PhoneBook::printContacts(), which is nice
+	- Phonebook::searchByNumber returns a raw pointer, could be unsafe
+	- Tests are split up by source file based on what they test
+- Test Coverage:
+	- Some edge cases not tested, new tests added in review
+- Bugs/Gaps:
+	- Phonebook::searchByName() is case sensitive
+	- Phonebook::updateContact() doesn't prevent duplicating a phone number
+	- main is very barebones, would be nice to a more comprehensive and/or interactive demo
+- Test Output:
+	- All tests pass except for new edge case tests
+	- Test names are sufficiently self explanatory
+- New tests:
+	- IsDigits.EmptyNumber: The check for invalid phone numbers doesn't catch empty strings.
+	- FixturePB.DupeContact: The check for duplicate numbers does properly function.
+	- FixturePB.UpdateContactInvalidNumber: The check for invalid phone numbers isn't run for updating existing contacts.
+	- FixturePB.DupeUpdateNumber: The check for duplicated phone numbers isn't run for updating existing contacts.
+	- FixturePB.SearchCaseInsensitive: Searching for contacts is case-sensitive. This maybe undesired behavior.
+- Possible improvements to code structure and modularity:
+	- Validation of inputs could be handled with utility boolean functions instead of including logic in adding/modifying functions.
+	- Could use exceptions instead of booleans for greater clarity.
+	- Should refactor structs to be classes with data kept private.

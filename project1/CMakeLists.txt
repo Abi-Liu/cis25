@@ -27,6 +27,7 @@ enable_testing()
 add_executable(tests
         test/person_test.cpp
         test/phonebook_test.cpp
+        test/pr_test.cpp
         src/person.cpp
         src/phonebook.cpp
 )
