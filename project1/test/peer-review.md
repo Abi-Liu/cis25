@@ -1,0 +1,11 @@
+# Peer review: Phonebook<br>
+- New tests:
+	- IsDigits.EmptyNumber: The check for invalid phone numbers doesn't catch empty strings.
+	- FixturePB.DupeContact: The check for duplicate numbers does properly function.
+	- FixturePB.UpdateContactInvalidNumber: The check for invalid phone numbers isn't run for updating existing contacts.
+	- FixturePB.DupeUpdateNumber: The check for duplicated phone numbers isn't run for updating existing contacts.
+	- FixturePB.SearchCaseInsensitive: Searching for contacts is case-sensitive. This maybe undesired behavior.
+- Possible improvements to code structure and modularity:
+	- Validation of inputs could be handled with utility boolean functions instead of including logic in adding/modifying functions.
+	- Could use exceptions instead of booleans for greater clarity.
+	- Should refactor structs to be classes with data kept private.
